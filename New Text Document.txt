@@ -1,0 +1,171 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ButtonGroup;
+
+public class UserApplication extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField t_fn;
+	private JTextField t_ln;
+	private JTextField t_dob;
+	private JTextField t_mn;
+	private JTextField t_mail;
+	private JTextArea t_area;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+
+	/**
+	 * Launch the application.
+	 */
+	public st_areatic void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UserApplication frame = new UserApplication();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printSt_areackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public UserApplication() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 676, 502);
+		contentPane = new JPanel();
+		contentPane.setForeground(Color.green);
+		contentPane.setBackground(Color.green);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblUserApplicationForm = new JLabel("User Application Form");
+		lblUserApplicationForm.setForeground(Color.BLUE);
+		lblUserApplicationForm.setBackground(Color.BLACK);
+		lblUserApplicationForm.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblUserApplicationForm.setBounds(137, 11, 138, 22);
+		contentPane.add(lblUserApplicationForm);
+		
+		JLabel lfn = new JLabel("First Name");
+		lfn.setForeground(Color.black);
+		lfn.setBackground(Color.BLACK);
+		lfn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lfn.setBounds(52, 44, 68, 22);
+		contentPane.add(lfn);
+		
+		t_fn = new JTextField();
+		t_fn.setBounds(137, 44, 214, 22);
+		contentPane.add(t_fn);
+		t_fn.setColumns(10);
+		
+		JLabel lln = new JLabel("Last Name");
+		lln.setForeground(Color.black);
+		lln.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lln.setBounds(52, 78, 68, 22);
+		contentPane.add(lln);
+		
+		t_ln = new JTextField();
+		t_ln.setBounds(137, 77, 214, 23);
+		contentPane.add(t_ln);
+		t_ln.setColumns(10);
+		
+		JLabel ldob = new JLabel("Date of Birth");
+		ldob.setForeground(Color.black);
+		ldob.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		ldob.setBounds(52, 111, 68, 22);
+		contentPane.add(ldob);
+		
+		t_dob = new JTextField();
+		t_dob.setBounds(137, 111, 214, 22);
+		contentPane.add(t_dob);
+		t_dob.setColumns(10);
+		
+		JLabel lmn = new JLabel("Mobile Number");
+		lmn.setForeground(Color.black);
+		lmn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lmn.setBounds(52, 144, 84, 22);
+		contentPane.add(lmn);
+		
+		t_mn = new JTextField();
+		t_mn.setBounds(137, 144, 214, 22);
+		contentPane.add(t_mn);
+		t_mn.setColumns(10);
+		
+		JLabel lbl_gender = new JLabel("Gender");
+		lbl_gender.setForeground(Color.black);
+		lbl_gender.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lbl_gender.setBounds(52, 177, 68, 22);
+		contentPane.add(lbl_gender);
+		
+		JRadioButton rmmb = new JRadioButton("Male");
+		buttonGroup.add(rmmb);
+		rmmb.setSelected(true);
+		rmmb.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		rmmb.setBounds(137, 177, 75, 23);
+		contentPane.add(rmmb);
+		
+		JRadioButton rbf = new JRadioButton("Female");
+		buttonGroup.add(rbf);
+		rbf.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		rbf.setSelected(false);
+		rbf.setBounds(267, 177, 84, 23);
+		contentPane.add(rbf);
+		
+		JLabel lmail = new JLabel("E-Mail");
+		lmail.setForeground(Color.black);
+		lmail.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lmail.setBounds(52, 211, 68, 14);
+		contentPane.add(lmail);
+		
+		t_mail = new JTextField();
+		t_mail.setBounds(137, 208, 214, 23);
+		contentPane.add(t_mail);
+		t_mail.setColumns(10);
+		
+		JButton b1 = new JButton("Submit");
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String fn=t_fn.getText();
+				String ln=t_ln.getText();
+				String dob=t_dob.getText();
+				String mn=t_mn.getText();
+				String g;
+				if(rmmb.isSelected())
+				{
+					g="Gender\tMale\n";
+				}
+				else
+				{
+					g="Gender\tFemale\n";
+				}
+				String email=t_mail.getText();
+				t_area.setText("Registeration Successful!!Your det_areails are:\nFirst Name\t" +""+ fn +""+ "\nLast Name\t" +""+ ln +""+ "\nDate Of Birth \t" +""+ dob +""+ "\nMobile Number\t" +""+ mn +""+ "\n" +""+ g +""+ "Email ID\t" +""+ email);
+			}
+		});
+		b1.setBackground(Color.BLUE);
+		b1.setForeground(Color.BLUE);
+		b1.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		b1.setBounds(157, 256, 89, 32);
+		contentPane.add(b1);
+		
+		t_area = new JTextArea();
+		t_area.setBounds(52, 303, 299, 149);
+		contentPane.add(t_area);
+	}
+}
