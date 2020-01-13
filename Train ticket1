@@ -1,0 +1,129 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import com.toedter.calendar.JDateChooser;
+
+public class gtyy extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField field1;
+	private JTextField field2;
+	private JTable table;
+	private JTextField field4;
+	private JLabel passengers;
+	private JTextField field5;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					gtyy frame = new gtyy();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public gtyy() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(200, 200, 550, 400);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel mainlbl = new JLabel("BOOK YOUR TRAIN TICKET");
+		mainlbl.setFont(new Font("Times New Roman", Font.BOLD, 28));
+		mainlbl.setBounds(52, 21, 446, 26);
+		contentPane.add(mainlbl);
+		
+		JLabel from = new JLabel("FROM");
+		from.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		from.setBounds(34, 81, 107, 14);
+		contentPane.add(from);
+		
+		field1 = new JTextField();
+		field1.setBounds(245, 80, 196, 20);
+		contentPane.add(field1);
+		field1.setColumns(10);
+		
+		JLabel to = new JLabel("TO");
+		to.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		to.setBounds(34, 123, 49, 14);
+		contentPane.add(to);
+		
+		field2 = new JTextField();
+		field2.setColumns(10);
+		field2.setBounds(245, 122, 196, 20);
+		contentPane.add(field2);
+		
+		JLabel date = new JLabel("DATE");
+		date.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		date.setBounds(34, 157, 107, 26);
+		contentPane.add(date);
+		
+		table = new JTable();
+		table.setBounds(0, 0, 1, 1);
+		contentPane.add(table);
+		
+		JLabel class1 = new JLabel("CLASS");
+		class1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		class1.setBounds(34, 194, 117, 25);
+		contentPane.add(class1);
+		
+		field4 = new JTextField();
+		field4.setColumns(10);
+		field4.setBounds(245, 193, 196, 20);
+		contentPane.add(field4);
+		
+		passengers = new JLabel("NO OF PASSENGERS");
+		passengers.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		passengers.setBounds(34, 230, 196, 27);
+		contentPane.add(passengers);
+		
+		field5 = new JTextField();
+		field5.setColumns(10);
+		field5.setBounds(245, 235, 196, 20);
+		contentPane.add(field5);
+		
+		JButton next = new JButton("NEXT");
+		next.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String frm=field1.getText();
+				String to=field2.getText();
+				//String dt1=.getText();
+				//String dt1=table.getToolTipText();
+				String sleeper=field4.getText();
+				passenger2 ps2=new passenger2(frm,to,sleeper);
+				passenger1 psg=new passenger1();
+				psg.NextScreen();
+				
+			}
+		});
+		next.setFont(new Font("Times New Roman", Font.BOLD, 24));
+		next.setBounds(192, 294, 148, 37);
+		contentPane.add(next);
+		
+		JDateChooser date1 = new JDateChooser();
+		date1.setBounds(245, 153, 198, 20);
+		contentPane.add(date1);
+	}
+}
