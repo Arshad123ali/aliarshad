@@ -1,0 +1,125 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.TextArea;
+
+public class passenger1 extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void NextScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					passenger1 frame = new passenger1();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public passenger1() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(600, 600, 550, 800);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel psglbl = new JLabel("PASSENGER DETAILS");
+		psglbl.setFont(new Font("Times New Roman", Font.BOLD, 28));
+		psglbl.setBounds(88, 11, 351, 39);
+		contentPane.add(psglbl);
+		
+		JLabel name = new JLabel("NAME");
+		name.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		name.setBounds(54, 79, 105, 24);
+		contentPane.add(name);
+		
+		textField = new JTextField();
+		textField.setBounds(278, 83, 204, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel aadhar = new JLabel("AADHAR NO");
+		aadhar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		aadhar.setBounds(54, 129, 139, 24);
+		contentPane.add(aadhar);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(278, 133, 204, 20);
+		contentPane.add(textField_1);
+		
+		JLabel dob = new JLabel("DOB");
+		dob.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		dob.setBounds(54, 176, 105, 24);
+		contentPane.add(dob);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(278, 180, 204, 32);
+		contentPane.add(dateChooser);
+		
+		JLabel gender = new JLabel("GENDER");
+		gender.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		gender.setBounds(43, 236, 116, 24);
+		contentPane.add(gender);
+		
+		JRadioButton male = new JRadioButton("MALE");
+		buttonGroup.add(male);
+		male.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		male.setBounds(250, 239, 111, 23);
+		contentPane.add(male);
+		
+		JRadioButton female = new JRadioButton("FEMALE");
+		buttonGroup.add(female);
+		female.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		female.setBounds(389, 239, 111, 23);
+		contentPane.add(female);
+		
+		JButton addpassenger1 = new JButton("ADD PASSENGER");
+		addpassenger1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String frm=textField.getText();
+				//String gen;
+				passenger2 psg2=new passenger2();
+				psg2.NextScreen();
+			}
+		});
+		addpassenger1.setFont(new Font("Times New Roman", Font.BOLD, 24));
+		addpassenger1.setBounds(189, 305, 250, 32);
+		contentPane.add(addpassenger1);
+		
+		JButton printbill1 = new JButton("PRINT BILL");
+		printbill1.setFont(new Font("Times New Roman", Font.BOLD, 24));
+		printbill1.setBounds(225, 368, 195, 32);
+		contentPane.add(printbill1);
+		
+		TextArea textArea = new TextArea();
+		textArea.setBounds(10, 460, 516, 208);
+		contentPane.add(textArea);
+	}
+}
