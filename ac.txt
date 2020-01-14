@@ -1,0 +1,180 @@
+package filter;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTable;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Ac extends JFrame {
+
+	private JPanel contentPane;
+	private JTable table;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void NextScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Ac frame = new Ac();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Ac() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(300, 300, 650, 500);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel acbus = new JLabel("AC BUS DETAILS");
+		acbus.setFont(new Font("Times New Roman", Font.BOLD, 28));
+		acbus.setBounds(228, 40, 266, 33);
+		contentPane.add(acbus);
+		
+		table = new JTable();
+		table.setBounds(10, 283, 587, -147);
+		contentPane.add(table);
+		
+		JLabel lblNewLabel = new JLabel("TRAVELS");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel.setBounds(34, 147, 102, 25);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblDate = new JLabel("DATE");
+		lblDate.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblDate.setBounds(174, 147, 102, 25);
+		contentPane.add(lblDate);
+		
+		JLabel lblTime = new JLabel("TIME");
+		lblTime.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblTime.setBounds(327, 147, 102, 25);
+		contentPane.add(lblTime);
+		
+		JLabel lblFair = new JLabel("FAIR");
+		lblFair.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblFair.setBounds(478, 147, 102, 25);
+		contentPane.add(lblFair);
+		
+		JLabel lblSrm = new JLabel("SRM");
+		lblSrm.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblSrm.setBounds(34, 199, 102, 25);
+		contentPane.add(lblSrm);
+		
+		JLabel label_1 = new JLabel("14/01/2020");
+		label_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_1.setBounds(174, 199, 102, 25);
+		contentPane.add(label_1);
+		
+		JLabel label_2 = new JLabel("19:30");
+		label_2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_2.setBounds(327, 199, 102, 25);
+		contentPane.add(label_2);
+		
+		JLabel label_3 = new JLabel("1600");
+		label_3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_3.setBounds(478, 199, 102, 25);
+		contentPane.add(label_3);
+		
+		JLabel lblIdeal = new JLabel("IDEAL");
+		lblIdeal.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblIdeal.setBounds(34, 247, 102, 25);
+		contentPane.add(lblIdeal);
+		
+		JLabel label_4 = new JLabel("14/01/2020");
+		label_4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_4.setBounds(174, 247, 102, 25);
+		contentPane.add(label_4);
+		
+		JLabel label_5 = new JLabel("20:00");
+		label_5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_5.setBounds(327, 247, 102, 25);
+		contentPane.add(label_5);
+		
+		JLabel label_6 = new JLabel("1500");
+		label_6.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_6.setBounds(478, 247, 102, 25);
+		contentPane.add(label_6);
+		
+		JLabel lblYbm = new JLabel("YBM");
+		lblYbm.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblYbm.setBounds(34, 299, 102, 25);
+		contentPane.add(lblYbm);
+		
+		JLabel label_7 = new JLabel("14/01/2020");
+		label_7.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_7.setBounds(174, 299, 102, 25);
+		contentPane.add(label_7);
+		
+		JLabel label_8 = new JLabel("20:00");
+		label_8.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_8.setBounds(327, 299, 102, 25);
+		contentPane.add(label_8);
+		
+		JLabel label_9 = new JLabel("1500");
+		label_9.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_9.setBounds(478, 299, 102, 25);
+		contentPane.add(label_9);
+		
+		JLabel lblA = new JLabel("A1");
+		lblA.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblA.setBounds(34, 354, 102, 25);
+		contentPane.add(lblA);
+		
+		JLabel label_10 = new JLabel("14/01/2020");
+		label_10.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_10.setBounds(174, 354, 102, 25);
+		contentPane.add(label_10);
+		
+		JLabel label_11 = new JLabel("22:30");
+		label_11.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_11.setBounds(327, 354, 102, 25);
+		contentPane.add(label_11);
+		
+		JLabel label_12 = new JLabel("1300");
+		label_12.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_12.setBounds(478, 354, 102, 25);
+		contentPane.add(label_12);
+		
+		JButton btnNewButton = new JButton("EXIT");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+			
+		});
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 23));
+		btnNewButton.setBounds(260, 416, 114, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("BACK");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 24));
+		btnNewButton_1.setBounds(82, 416, 114, 27);
+		contentPane.add(btnNewButton_1);
+	}
+}

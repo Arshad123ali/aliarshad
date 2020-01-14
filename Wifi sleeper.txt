@@ -1,0 +1,142 @@
+package filter;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class WifiAcSleeper extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void NextScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					WifiAcSleeper frame = new WifiAcSleeper();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public WifiAcSleeper() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(300, 300, 650, 500);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("AC WIFI SLEEPER BUS DETAILS");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 26));
+		lblNewLabel.setBounds(72, 44, 479, 37);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("TRAVELS");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(22, 138, 106, 37);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblDate = new JLabel("DATE");
+		lblDate.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblDate.setBounds(189, 138, 82, 37);
+		contentPane.add(lblDate);
+		
+		JLabel lblTime = new JLabel("TIME");
+		lblTime.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblTime.setBounds(351, 138, 106, 37);
+		contentPane.add(lblTime);
+		
+		JLabel lblFair = new JLabel("FAIR");
+		lblFair.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblFair.setBounds(520, 138, 106, 37);
+		contentPane.add(lblFair);
+		
+		JLabel lblYbm = new JLabel("YBM");
+		lblYbm.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblYbm.setBounds(22, 195, 106, 37);
+		contentPane.add(lblYbm);
+		
+		JLabel lblParveen = new JLabel("PARVEEN");
+		lblParveen.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblParveen.setBounds(22, 266, 106, 37);
+		contentPane.add(lblParveen);
+		
+		JLabel lblOrange = new JLabel("ORANGE");
+		lblOrange.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblOrange.setBounds(22, 341, 106, 37);
+		contentPane.add(lblOrange);
+		
+		JLabel label = new JLabel("14/01/2020");
+		label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label.setBounds(165, 195, 106, 37);
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel("14/01/2020");
+		label_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_1.setBounds(165, 266, 106, 37);
+		contentPane.add(label_1);
+		
+		JLabel label_2 = new JLabel("14/01/2020");
+		label_2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_2.setBounds(165, 341, 106, 37);
+		contentPane.add(label_2);
+		
+		JLabel label_3 = new JLabel("8:30");
+		label_3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_3.setBounds(351, 195, 106, 37);
+		contentPane.add(label_3);
+		
+		JLabel label_4 = new JLabel("14:30");
+		label_4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_4.setBounds(351, 266, 106, 37);
+		contentPane.add(label_4);
+		
+		JLabel label_5 = new JLabel("23:45");
+		label_5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_5.setBounds(351, 341, 106, 37);
+		contentPane.add(label_5);
+		
+		JLabel label_6 = new JLabel("1800");
+		label_6.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_6.setBounds(495, 195, 106, 37);
+		contentPane.add(label_6);
+		
+		JLabel label_7 = new JLabel("1600");
+		label_7.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_7.setBounds(495, 266, 106, 37);
+		contentPane.add(label_7);
+		
+		JLabel label_8 = new JLabel("1700");
+		label_8.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		label_8.setBounds(495, 341, 106, 37);
+		contentPane.add(label_8);
+		
+		JButton btnNewButton = new JButton("EXIT");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 23));
+		btnNewButton.setBounds(287, 417, 106, 23);
+		contentPane.add(btnNewButton);
+	}
+
+}
