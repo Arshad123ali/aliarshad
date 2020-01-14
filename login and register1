@@ -1,0 +1,180 @@
+package login;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class LoginAndRegister extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField usernametext;
+	private JTextField emailtext;
+	private JTextField password1text;
+	private JTextField cfrmpasswordtext;
+	private JTextField email_text;
+	private JTextField password_text;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginAndRegister frame = new LoginAndRegister();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public LoginAndRegister() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(300, 300, 650, 500);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(10, 11, 626, 452);
+		contentPane.add(tabbedPane);
+		
+		JPanel register = new JPanel();
+		tabbedPane.addTab("REGISTER", null, register, null);
+		register.setLayout(null);
+		
+		JLabel register1 = new JLabel("REGISTER");
+		register1.setFont(new Font("Times New Roman", Font.BOLD, 28));
+		register1.setBounds(236, 30, 175, 33);
+		register.add(register1);
+		
+		JLabel username = new JLabel("USER NAME");
+		username.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		username.setBounds(64, 94, 141, 24);
+		register.add(username);
+		
+		usernametext = new JTextField();
+		usernametext.setBounds(332, 98, 207, 20);
+		register.add(usernametext);
+		usernametext.setColumns(10);
+		
+		JLabel email = new JLabel("E-MAIL");
+		email.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		email.setBounds(67, 150, 88, 33);
+		register.add(email);
+		
+		emailtext = new JTextField();
+		emailtext.setColumns(10);
+		emailtext.setBounds(332, 158, 207, 20);
+		register.add(emailtext);
+		
+		JLabel password1 = new JLabel("PASSWORD");
+		password1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		password1.setBounds(64, 209, 120, 24);
+		register.add(password1);
+		
+		password1text = new JTextField();
+		password1text.setColumns(10);
+		password1text.setBounds(332, 213, 207, 20);
+		register.add(password1text);
+		
+		JLabel cfrmpassword = new JLabel("CONFIRM PASSWORD");
+		cfrmpassword.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		cfrmpassword.setBounds(64, 256, 207, 24);
+		register.add(cfrmpassword);
+		
+		cfrmpasswordtext = new JTextField();
+		cfrmpasswordtext.setColumns(10);
+		cfrmpasswordtext.setBounds(332, 260, 207, 20);
+		register.add(cfrmpasswordtext);
+		
+		JButton btnRegister = new JButton("REGISTER");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String user=usernametext.getText();
+				String email=emailtext.getText();
+				String password1=password1text.getText(); 
+				String password2=cfrmpasswordtext.getText();
+				if(user.equals("Sandeep")||email.equals("sandeep@gmail.com"))
+				{
+					JOptionPane.showConfirmDialog(contentPane, "Account already exist");
+				}else if(password1.equals(password2)==false)
+				{
+					JOptionPane.showMessageDialog(contentPane, "Password dosn't match\tPlease check");
+					
+				}else
+				{
+					JOptionPane.showMessageDialog(contentPane, "Account Sucessfully created");
+				}
+			}
+		});
+		btnRegister.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnRegister.setBounds(252, 324, 141, 33);
+		register.add(btnRegister);
+		
+		JPanel login = new JPanel();
+		tabbedPane.addTab("LOGIN", null, login, null);
+		login.setLayout(null);
+		
+		JLabel login1 = new JLabel("LOGIN");
+		login1.setFont(new Font("Times New Roman", Font.BOLD, 28));
+		login1.setBounds(236, 22, 142, 25);
+		login.add(login1);
+		
+		JLabel email1 = new JLabel("E-MAIL ID");
+		email1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		email1.setBounds(93, 82, 117, 25);
+		login.add(email1);
+		
+		email_text = new JTextField();
+		email_text.setBounds(328, 84, 219, 24);
+		login.add(email_text);
+		email_text.setColumns(10);
+		
+		JLabel password = new JLabel("PASSWORD");
+		password.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		password.setBounds(93, 134, 155, 19);
+		login.add(password);
+		
+		password_text = new JTextField();
+		password_text.setBounds(328, 135, 219, 20);
+		login.add(password_text);
+		password_text.setColumns(10);
+		
+		JButton login_button = new JButton("LOGIN");
+		login_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String email1=email_text.getText();
+				String pass=password_text.getText();
+				if(email1.contentEquals("arshad.ali@faceacademy.in")&&pass.contentEquals("asdfgh@"))
+				{
+					JOptionPane.showMessageDialog(contentPane, "Logged in sucessfully");
+				}else
+				{
+					JOptionPane.showMessageDialog(contentPane, "Invalid login credentials");
+				}
+			}
+		});
+		login_button.setFont(new Font("Times New Roman", Font.BOLD, 24));
+		login_button.setBounds(250, 195, 142, 37);
+		login.add(login_button);
+	}
+}
