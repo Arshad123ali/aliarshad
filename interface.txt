@@ -1,0 +1,414 @@
+QUESTION NO:1
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+interface Ipaint
+{
+    void paint();
+}
+class Canvas
+{
+     public String typeOfPaint=" ";
+     public int size=0;
+     public  Canvas(String typeOfPaint,int size)
+     {
+         this.typeOfPaint=typeOfPaint;
+         this.size=size;
+     }
+}
+class RegularCanvas extends Canvas implements Ipaint
+{
+    public RegularCanvas(String typeOfPaint,int size)
+    {
+        super(typeOfPaint,size);
+    }
+    public void paint()
+    {
+        if(typeOfPaint.equals("water"))
+        {
+            System.out.println("Paint a flower of size: "+size);
+        }else
+        {
+            System.out.println("Cannot paint Type mismatch. Water Paint required for Regular Canvas");
+        }
+    }
+}
+class GlassCanvas extends Canvas implements Ipaint
+{
+    public GlassCanvas(String typeOfPaint,int size)
+    {
+        super(typeOfPaint,size);
+    }
+    public void paint()
+    {
+        if(typeOfPaint.equals("glass"))
+        {
+          System.out.println("Paint a flower of size: "+size);  
+        }else
+        {
+           System.out.println("Cannot paint Type mismatch. glass Paint required for glass Canvas"); 
+        }
+    }
+}
+class OilCanvas extends Canvas implements Ipaint
+{
+    public OilCanvas(String typeOfPaint,int size)
+    {
+        super(typeOfPaint,size);
+    }
+    public void paint()
+    {
+        if(typeOfPaint.equals("oil"))
+        {
+            System.out.println("Paint a flower of size: "+size);
+        }else
+        {
+            System.out.println("Cannot paint Type mismatch. oil Paint required for oil Canvas");
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		String typeOfPaint;
+		int size;
+		System.out.println("1.RegularCanvas");
+		System.out.println("2.GlassCanvas");
+		System.out.println("3.OilCanvas");
+		System.out.println("Enter the choice");
+		int ch=s.nextInt();
+		switch(ch)
+		{
+		   case 1:
+		       System.out.println("Enter the type of pant");
+		       typeOfPaint=s.next();
+		       System.out.println("Enter the size");
+		       size=s.nextInt();
+		       RegularCanvas regular=new RegularCanvas(typeOfPaint,size);
+		       regular.paint();
+		       break;
+		  case 2:
+		       System.out.println("Enter the type of pant");
+		       typeOfPaint=s.next();
+		       System.out.println("Enter the size");
+		       size=s.nextInt();
+		       GlassCanvas glass=new GlassCanvas(typeOfPaint,size);
+		       glass.paint();
+		       break;
+		  case 3:
+		       System.out.println("Enter the type of pant");
+		       typeOfPaint=s.next();
+		       System.out.println("Enter the size");
+		       size=s.nextInt();
+		       OilCanvas oil=new OilCanvas(typeOfPaint,size);
+		       oil.paint();
+		}
+		
+		
+	}
+}
+QUESTION NO:2
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+interface ITrade
+{
+    public double sellPainting(Painting paintingToSell);
+    public double buyPainting();
+}
+class Painting
+{
+    double value;
+    String typeOfPainting;
+    public Painting(String typeOfPainting,double value)
+    {
+        this.typeOfPainting=typeOfPainting;
+        this.value=value;
+    }
+}
+class Expo 
+{
+    static int i=0;
+    Painting listOfPaintings;
+    Expo(Painting p)
+    {
+        this.listOfPaintings=p;
+        i++;
+    }
+}
+class ArtExpo extends Expo implements ITrade
+{
+    double water,glass,oil;
+    public ArtExpo(Painting p,double water,double glass,double oil)
+    {
+        super(p);
+        this.water=water;
+        this.glass=glass;
+        this.oil=oil;
+    }
+    public double buyPainting()
+    {
+        return ((water*0.5)+(glass*0.75)+(oil*1.5));
+    }
+    public double sellPainting(Painting paintingToSell)
+    {
+        return ((water*1.25)+(glass*0.35)+(oil*1.10));
+    }
+}
+class BlackMarket extends Expo implements ITrade
+{
+     double water,glass,oil;
+    public BlackMarket(Painting p1,double water,double glass,double oil)
+    {
+        super(p1);
+        this.water=water;
+        this.glass=glass;
+        this.oil=oil;
+    }
+    public double buyPainting()
+    {
+        return ((water*0.5)+(glass*1.75)+(oil*2.75));
+    }
+    public double sellPainting(Painting paintingToSell)
+    {
+        return ((water*0.25)+(glass*1.35)+(oil*2.25));
+    }
+}
+class Museum extends Expo implements ITrade
+{
+    
+     double water,glass,oil;
+    public Museum(Painting p2,double water,double glass,double oil)
+    {
+        super(p2);
+        this.water=water;
+        this.glass=glass;
+        this.oil=oil;
+    }
+    public double buyPainting()
+    {
+        return ((water*1.5)+(glass*3.75)+(oil*1.25));
+    }
+    public double sellPainting(Painting paintingToSell)
+    {
+        return ((water*1)+(glass*2.35)+(oil*0.75));
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("1.ArtExpo");
+		System.out.println("2.BlackMarket");
+		System.out.println("3.Museum");
+		System.out.println("Enter your choice");
+		String typeOfPainting;
+		double value,water,glass,oil;
+		int ch=s.nextInt();
+		switch(ch)
+		{
+		    case 1:
+		    System.out.println("Enter the type of painting");
+		    typeOfPainting=s.next();
+		    System.out.println("Enter the value of painting");
+		    value=s.nextDouble();
+		    System.out.println("Enter number of water painting");
+		    water=s.nextDouble();
+		    System.out.println("Enter number of glass painting");
+		    glass=s.nextDouble();
+		    System.out.println("Enter number of oil painting");
+		    oil=s.nextDouble();
+		    Painting p=new Painting(typeOfPainting,value);
+		    ArtExpo art=new ArtExpo(p,water,glass,oil);
+		    System.out.println("cost price of painting:"+art.buyPainting());
+		    System.out.println("selling price of painting:"+art.sellPainting(p));
+		    break;
+		    case 2:
+		    System.out.println("Enter the type of painting");
+		    typeOfPainting=s.next();
+		    System.out.println("Enter the value of painting");
+		    value=s.nextDouble();
+		    System.out.println("Enter number of water painting");
+		    water=s.nextDouble();
+		    System.out.println("Enter number of glass painting");
+		    glass=s.nextDouble();
+		    System.out.println("Enter number of oil painting");
+		    oil=s.nextDouble();
+		    Painting p1=new Painting(typeOfPainting,value);
+		    BlackMarket black=new BlackMarket(p1,water,glass,oil);
+		    System.out.println("cost price of painting:"+black.buyPainting());
+		    System.out.println("selling price of painting:"+black.sellPainting(p1));
+		    break;
+		    case 3:
+		    System.out.println("Enter the type of painting");
+		    typeOfPainting=s.next();
+		    System.out.println("Enter the value of painting");
+		    value=s.nextDouble();
+		    System.out.println("Enter number of water painting");
+		    water=s.nextDouble();
+		    System.out.println("Enter number of glass painting");
+		    glass=s.nextDouble();
+		    System.out.println("Enter number of oil painting");
+		    oil=s.nextDouble();
+		    Painting p2=new Painting(typeOfPainting,value);
+		    Museum m=new Museum(p2,water,glass,oil);
+		    System.out.println("cost price of painting:"+m.buyPainting());
+		    System.out.println("selling price of painting:"+m.sellPainting(p2));
+		}
+	}
+}
+QUESTION NO:3
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.*;
+interface iHumanActions
+{
+    public void buyStuff(String itemToBuy,double price);
+    public void socialize(double hours);
+    public void workFor(double hours);
+}
+interface iRobotActions
+{
+    public void performMadoubleenance(double hours);
+    public void padoubleAndSell(double hours);
+    public void restFor(double hours);
+}
+class KutchiController implements iHumanActions,iRobotActions
+{
+    double cash;
+    double energy;
+    public KutchiController(double cash,double energy)
+    {
+        this.cash=cash;
+        this.energy=energy;
+    }
+    public void display()
+    {
+        System.out.println("The current cash left out: "+cash);
+        System.out.println("The current energy left out: "+energy);
+    }
+    public void buyStuff(String itemToBuy,double price)
+    {
+        if(price<=cash)
+        {
+            System.out.println("Item "+itemToBuy+" is bought for "+price);
+            this.cash=cash-price;
+        }else
+        {
+            System.out.println("Insufficent balance");
+        }
+    }
+    public void socialize(double hours)
+    {
+        double min=60*hours;
+        double ret=min/20;
+        if(cash<=0||energy<=0)
+        {
+            System.out.println("Insufficent balance");
+        }else
+        {
+        System.out.println("Total energy consumed is "+ret);
+        this.energy=energy-ret;
+        }
+    }
+    public void workFor(double hours)
+    {
+        double ret=hours*5;
+         if(cash<=0||energy<=0)
+        {
+            System.out.println("Insufficent balance");
+        }else
+        {
+        System.out.println("Total energy consumed "+ret);
+        this.energy=energy-ret;
+        System.out.println("Earns total cash "+hours*15);
+        this.cash=cash+(15*hours);
+        }
+    }
+    public void performMadoubleenance(double hours)
+    {
+        double min=hours*60;
+        double ret1=min/90;
+        double a=ret1*3;
+        double b=ret1*7;
+        if(cash<=0)
+        {
+            System.out.println("Insufficent balance");
+        }else
+        {
+            System.out.println("Total energy consumed"+(energy-a));
+            System.out.println("Total cash spent"+(cash-b));
+            this.energy=energy-a;
+            this.cash=cash-b;
+        }
+    }
+    public void padoubleAndSell(double hours)
+    {
+        double ret=hours/2;
+        double a=ret*5;
+        if(cash<=0)
+        {
+            System.out.println("Insufficent balance");
+        }else
+        {
+        System.out.println("Total padoubleings created "+ret);
+        System.out.println("padoubleings sold for "+(ret*7));
+        }
+    }
+    public void restFor(double hours)
+    {
+       double min=hours*60;
+       double ret=min/150;
+       double rest=ret*7;
+       double ca=ret*3;
+       System.out.println("Total energy restored"+(rest));
+       System.out.println("Total cash lost "+ca);
+       this.energy=energy+rest;
+       this.cash=cash-ca;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		double cash,price;
+		double energy,hours;
+		String itemToBuy;
+		System.out.println("Enter the amount");
+		cash=s.nextDouble();
+		System.out.println("Enter the energy required");
+		energy=s.nextDouble();
+		KutchiController kutchi=new KutchiController(cash,energy);
+		kutchi.display();
+		System.out.println("Enter item to buy");
+		itemToBuy=s.next();
+		System.out.println("Enter the price");
+		price=s.nextDouble();
+		kutchi.buyStuff(itemToBuy,price);
+		System.out.println("Enter the hours");
+		hours=s.nextDouble();
+		kutchi.socialize(hours);
+        kutchi.workFor(hours);
+        kutchi.performMadoubleenance(hours);
+        kutchi.restFor(hours);
+	}
+}
